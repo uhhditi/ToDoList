@@ -1,30 +1,35 @@
-//
-//  NewToDoView.swift
-//  ToDoList
-//
-//  Created by Aditi Agarwal on 4/27/25.
-//
-
 import SwiftUI
 
 struct NewToDoView: View {
+    @State private var taskDescription: String = ""
+    @State private var isImportant: Bool = false
+    
     var body: some View {
-        VStack{
+        VStack {
             Text("Task title:")
                 .font(.title)
                 .fontWeight(.bold)
-            TextField("Enter the task description...", text: Value)
-                    .padding()
+            
+            TextField("Enter the task description...", text: $taskDescription)
+                .padding()
                 .background(Color(.systemGroupedBackground))
                 .cornerRadius(15)
-                  .padding()
-            Toggle(isOn: Is On) {
+                .padding()
+            
+            Toggle(isOn: $isImportant) {
                 Text("Is it important?")
             }
-            Button {
-
-            } label: {
-                    Text("Save")
+            .padding()
+            
+            Button(action: {
+                // Action to save the task can go here
+            }) {
+                Text("Save")
+                    .font(.headline)
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
             }
         }
         .padding()
@@ -34,3 +39,4 @@ struct NewToDoView: View {
 #Preview {
     NewToDoView()
 }
+
