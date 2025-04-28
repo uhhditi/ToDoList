@@ -31,15 +31,21 @@ struct ContentView: View {
             .padding()
             List {
                     ForEach (toDos) { toDoItem in
+                        if toDoItem.isImportant {
+                            Text("‼️" + toDoItem.title)
+                        } else {
                             Text(toDoItem.title)
+                        }
                     }
             }
+            .listStyle(.plain)
             Spacer()
         }
         .padding()
         if showNewTask {
-            NewToDoView()
+            NewToDoView(showNewTask: $showNewTask, toDoItem: ToDoItem(title: "", isImportant: false))
         }
+        
     }
 }
 
