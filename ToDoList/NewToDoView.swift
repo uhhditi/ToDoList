@@ -43,6 +43,5 @@ struct NewToDoView: View {
 }
 
 #Preview {
-    NewToDoView(showNewTask: .constant(false), toDoItem: ToDoItem(title: "", isImportant: false))
 }
 
